@@ -6,16 +6,30 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="10dp"
         android:text="¡Bienvenido, ingresa a tu cuenta!"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:padding="10dp"
+        android:src="@drawable/loginimage">
+    </ImageView>
+
+    <TextView
+        android:id="@+id/errorMessage"
+        android:textColor="@color/red"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
 
     <TextView
         android:id="@+id/textView2"
@@ -25,7 +39,7 @@
         android:text="E-mail" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress2"
+        android:id="@+id/txtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -40,7 +54,7 @@
         android:text="Contraseña" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/txtPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -53,19 +67,25 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/btnRegister"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_marginRight="100dp"
+            android:textSize="15sp"
+            android:background="@drawable/button_rounded"
+            android:onClick="onClickRegister"
             android:text="Registrarse" />
 
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="15sp"
+            android:background="@drawable/button_rounded"
+            android:onClick="onClickLogin"
             android:text="Entrar" />
     </LinearLayout>
 
