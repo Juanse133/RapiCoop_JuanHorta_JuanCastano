@@ -12,10 +12,14 @@ import android.widget.TextView;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    LoginDatabaseHelper miDB;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
+        miDB = new LoginDatabaseHelper(this);
+        miDB.initData();
     }
 
     public void onClickRegister(View view){
@@ -27,9 +31,17 @@ public class RegisterActivity extends AppCompatActivity {
         String gender = ((RadioButton) findViewById(((RadioGroup) findViewById(R.id.RadioGroup)).getCheckedRadioButtonId())).getText().toString();
 
         if(password.equals(confPassword)){
-            Intent intent = new Intent(this, HomeActivity.class);
-            intent.putExtra(HomeActivity.EXTRA_MESSAGE, username);
-            startActivity(intent);
+
+            boolean resultado = miDB.insertData(new Usuario(0,fullname,username,email,password,gender));
+
+            if (resultado) {
+                Intent intent = new Intent(this, HomeActivity.class);
+                intent.putExtra(HomeActivity.EXTRA_MESSAGE, username);
+                startActivity(intent);
+            } else {
+                ((TextView) findViewById(R.id.errorMessage)).setText("Registro inválido");
+            }
+
         } else {
             ((TextView) findViewById(R.id.errorMessage)).setText("Las contraseñas no coinciden");
         }
