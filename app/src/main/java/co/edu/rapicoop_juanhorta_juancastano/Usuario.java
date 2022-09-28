@@ -9,14 +9,18 @@ public class Usuario {
     private String EMAIL;
     private String PASSWORD;
     private String GENDER;
+    private String ROLE;
+    private String BIRTHDAY;
 
-    public Usuario(Integer ID, String FULLNAME, String USERNAME, String EMAIL, String PASSWORD, String GENDER) {
+    public Usuario(Integer ID, String FULLNAME, String USERNAME, String EMAIL, String PASSWORD, String GENDER, String ROLE, String BIRTHDAY) {
         this.ID = ID;
         this.FULLNAME = FULLNAME;
         this.USERNAME = USERNAME;
         this.EMAIL = EMAIL;
         this.PASSWORD = PASSWORD;
         this.GENDER = GENDER;
+        this.ROLE = ROLE;
+        this.BIRTHDAY = BIRTHDAY;
     }
 
     public Integer getID() {
@@ -65,5 +69,21 @@ public class Usuario {
 
     public void setGENDER(String GENDER) {
         this.GENDER = GENDER;
+    }
+
+    public String getROLE() {
+        return ROLE;
+    }
+
+    public void setROLE(String ROLE) {
+        this.ROLE = ROLE;
+    }
+
+    public String getBIRTHDAY() {
+        return BIRTHDAY;
+    }
+
+    public void setBIRTHDAY(String BIRTHDAY) {
+        this.BIRTHDAY = BIRTHDAY;
     }
 }

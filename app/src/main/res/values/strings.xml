@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">RapiCoop_JuanHorta_JuanCastano</string>
+    <string-array name="roles">
+        <item>Vendedor de comidas</item>
+        <item>Comprador</item>
+        <item>Domiciliario</item>
+    </string-array>
 </resources>

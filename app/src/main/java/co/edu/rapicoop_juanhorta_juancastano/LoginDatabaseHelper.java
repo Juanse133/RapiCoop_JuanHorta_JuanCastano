@@ -18,6 +18,8 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL4 = "EMAIL";
     public static final String COL5 = "PASSWORD";
     public static final String COL6 = "GENDER";
+    public static final String COL7 = "ROLE";
+    public static final String COL8 = "BIRTHDAY";
 
     public LoginDatabaseHelper(@Nullable Context context){
         super(context, DATABASE_NAME, null, 1);
@@ -32,7 +34,9 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
                 COL3 + " TEXT," +
                 COL4 + " TEXT," +
                 COL5 + " TEXT," +
-                COL6 + " TEXT);");
+                COL6 + " TEXT," +
+                COL7 + " TEXT," +
+                COL8 + " TEXT);");
     }
 
     @Override
@@ -54,6 +58,8 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
         values.put(COL4, user.getEMAIL());
         values.put(COL5, user.getPASSWORD());
         values.put(COL6, user.getGENDER());
+        values.put(COL7, user.getROLE());
+        values.put(COL8, user.getBIRTHDAY());
 
         long resultado = db.insert(TABLE_NAME, null, values);
 
