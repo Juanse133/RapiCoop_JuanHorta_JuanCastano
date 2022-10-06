@@ -37,6 +37,16 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
                 COL6 + " TEXT," +
                 COL7 + " TEXT," +
                 COL8 + " TEXT);");
+
+
+        db.execSQL("create table " + "Productos_Table" + "(" +
+                "ID" + " INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "NAME" + " TEXT," +
+                "DESCRIPTION" + " TEXT," +
+                "PRICE" + " REAL," +
+                "QUANTITY" + " INTEGER," +
+                "EMAIL" + " TEXT);");
+
     }
 
     @Override

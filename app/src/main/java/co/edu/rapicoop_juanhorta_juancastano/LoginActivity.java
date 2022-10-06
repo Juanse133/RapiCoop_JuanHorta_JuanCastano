@@ -31,8 +31,8 @@ public class LoginActivity extends AppCompatActivity {
         String password = ((EditText) findViewById(R.id.txtPassword)).getText().toString();
 
         if (checkUser(email, password)) {
-            Intent intent = new Intent(this, HomeActivity.class);
-            intent.putExtra(HomeActivity.EXTRA_MESSAGE, email);
+            Intent intent = new Intent(this, HomeVendorActivity.class);
+            intent.putExtra(HomeVendorActivity.EXTRA_MESSAGE, email);
             startActivity(intent);
         } else {
             ((TextView) findViewById(R.id.errorMessage)).setText("Usuario o contraseña inválida");
