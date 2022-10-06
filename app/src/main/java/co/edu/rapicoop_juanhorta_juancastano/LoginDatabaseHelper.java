@@ -21,7 +21,7 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL7 = "ROLE";
     public static final String COL8 = "BIRTHDAY";
 
-    public LoginDatabaseHelper(@Nullable Context context){
+    public LoginDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
 
@@ -44,12 +44,12 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void initData(){
-        SQLiteDatabase db = this. getWritableDatabase();
-        onUpgrade(db, 1,2);
+    public void initData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        onUpgrade(db, 1, 2);
     }
 
-    public boolean insertData(Usuario user){
+    public boolean insertData(Usuario user) {
 
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -63,26 +63,26 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
 
         long resultado = db.insert(TABLE_NAME, null, values);
 
-        if(resultado == -1)
+        if (resultado == -1)
             return false;
         else
             return true;
 
     }
 
-    public Cursor getAllData(){
+    public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME, null);
         return cursor;
     }
 
-    Cursor getDataByID(int id){
+    Cursor getDataByID(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE ID = " + id, null);
         return cursor;
     }
 
-    Cursor getDataByEmail(String email){
+    Cursor getDataByEmail(String email) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE EMAIL = '" + email + "'", null);
         return cursor;

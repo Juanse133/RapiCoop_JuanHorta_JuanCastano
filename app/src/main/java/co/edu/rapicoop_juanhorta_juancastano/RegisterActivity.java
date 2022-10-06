@@ -78,13 +78,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 / (1000l * 60 * 60 * 24 * 365));
         System.out.println(diffInYears);
 
-        if(checkUserExistence(email)){
+        if (checkUserExistence(email)) {
             ((TextView) findViewById(R.id.errorMessage)).setText("Este correo ya está registrado");
             return;
         }
-        if(diffInYears <18 && (role.equals("Vendedor de comidas")|| role.equals("Domiciliario"))){
-            ((TextView) findViewById(R.id.errorMessage)).setText("Debes ser mayor de 18 años para registrarte como "+role);
-        }else{
+        if (diffInYears < 18 && (role.equals("Vendedor de comidas") || role.equals("Domiciliario"))) {
+            ((TextView) findViewById(R.id.errorMessage)).setText("Debes ser mayor de 18 años para registrarte como " + role);
+        } else {
             if (password.equals(confPassword)) {
 
                 boolean resultado = miDB.insertData(new Usuario(0, fullname, username, email, password, gender, role, birthday));
@@ -101,7 +101,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 ((TextView) findViewById(R.id.errorMessage)).setText("Las contraseñas no coinciden");
             }
         }
-
 
 
     }
