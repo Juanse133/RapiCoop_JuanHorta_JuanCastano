@@ -41,9 +41,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public boolean checkUser(String email, String password){
         Cursor cursor = miDB.getDataByEmail(email);
-        int colID = cursor.getColumnIndex("EMAIL");
+        if(cursor.getCount()==0)
+            return false;
+        cursor.moveToFirst();
+        int colID = cursor.getColumnIndex("PASSWORD");
         String dbPassword = cursor.getString(colID);
-        if(password == dbPassword)
+        if(password.equals(dbPassword))
             return true;
         else
             return false;
