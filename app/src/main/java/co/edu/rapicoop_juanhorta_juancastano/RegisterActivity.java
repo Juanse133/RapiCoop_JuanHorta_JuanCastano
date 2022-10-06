@@ -2,6 +2,7 @@ package co.edu.rapicoop_juanhorta_juancastano;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -77,7 +78,10 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 / (1000l * 60 * 60 * 24 * 365));
         System.out.println(diffInYears);
 
-
+        if(checkUserExistence(email)){
+            ((TextView) findViewById(R.id.errorMessage)).setText("Este correo ya está registrado");
+            return;
+        }
         if(diffInYears <18 && (role.equals("Vendedor de comidas")|| role.equals("Domiciliario"))){
             ((TextView) findViewById(R.id.errorMessage)).setText("Debes ser mayor de 18 años para registrarte como "+role);
         }else{
@@ -98,6 +102,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             }
         }
 
+
+
+    }
+
+    public boolean checkUserExistence(String email) {
+        Cursor cursor = miDB.getDataByEmail(email);
+        if (cursor.getCount() == 0)
+            return false;
+        else
+            return true;
     }
 
 }
