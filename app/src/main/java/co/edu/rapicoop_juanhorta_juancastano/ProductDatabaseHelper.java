@@ -80,7 +80,7 @@ public class ProductDatabaseHelper extends SQLiteOpenHelper {
 
     Cursor getDataByName(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
-        Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE TAGS LIKE %" + name + "% OR NAME LIKE " + name + " AND QUANTITY > 0", null);
+        Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE TAGS LIKE '%" + name + "%' OR NAME LIKE '%" + name + "%' AND QUANTITY > 0", null);
         return cursor;
     }
 

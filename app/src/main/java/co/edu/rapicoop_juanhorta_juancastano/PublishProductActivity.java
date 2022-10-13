@@ -25,13 +25,14 @@ public class PublishProductActivity extends AppCompatActivity {
         String description = ((EditText) findViewById(R.id.productDescription)).getText().toString();
         String priceStr = ((EditText) findViewById(R.id.price)).getText().toString();
         String quantityStr = ((EditText) findViewById(R.id.quantity)).getText().toString();
+        String tags = ((EditText) findViewById(R.id.tags)).getText().toString();
         Intent intent = getIntent();
         String email = intent.getStringExtra(EXTRA_MESSAGE);
         double price = Double.parseDouble(priceStr);
         int quantity = Integer.parseInt(quantityStr);
         System.out.println(name+" "+description+" "+email+" "+price+" "+quantity);
 
-        boolean resultado = miDB.insertData(new Producto(0, name, description, price, quantity, email));
+        boolean resultado = miDB.insertData(new Producto(0, name, description, price, quantity, email, tags));
 
         if (resultado) {
             ((TextView) findViewById(R.id.disclaimerMessage)).setText("Producto creado correctamente");

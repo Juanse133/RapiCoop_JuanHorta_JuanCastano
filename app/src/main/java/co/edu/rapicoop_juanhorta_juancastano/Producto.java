@@ -8,14 +8,16 @@ public class Producto {
     private Double PRICE;
     private Integer QUANTITY;
     private String EMAIL;
+    private String TAGS;
 
-    public Producto(Integer ID, String NAME, String DESCRIPTION, Double PRICE, Integer QUANTITY, String EMAIL) {
+    public Producto(Integer ID, String NAME, String DESCRIPTION, Double PRICE, Integer QUANTITY, String EMAIL, String TAGS) {
         this.ID = ID;
         this.NAME = NAME;
         this.DESCRIPTION = DESCRIPTION;
         this.PRICE = PRICE;
         this.QUANTITY = QUANTITY;
         this.EMAIL = EMAIL;
+        this.TAGS = TAGS;
     }
 
     public Integer getID() {
@@ -64,5 +66,13 @@ public class Producto {
 
     public void setEMAIL(String EMAIL) {
         this.EMAIL = EMAIL;
+    }
+
+    public String getTAGS() {
+        return TAGS;
+    }
+
+    public void setTAGS(String TAGS) {
+        this.TAGS = TAGS;
     }
 }
