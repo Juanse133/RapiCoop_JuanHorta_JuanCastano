@@ -56,6 +56,7 @@ public class ProductDatabaseHelper extends SQLiteOpenHelper {
         values.put(COL4, product.getPRICE());
         values.put(COL5, product.getQUANTITY());
         values.put(COL6, product.getEMAIL());
+        values.put(COL7, product.getTAGS());
 
         long resultado = db.insert(TABLE_NAME, null, values);
 

@@ -5,8 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
 
@@ -28,7 +32,11 @@ public class HomeClientActivity extends AppCompatActivity {
         if(name.equals(""))
             return;
 
-        Producto[] productos = getProductos(name);
+        List<Producto> productos = new ArrayList<>(Arrays.asList(getProductos(name)));
+        ListView listview = findViewById(R.id.ProductsList);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter(HomeClientActivity.this, android.R.layout.simple_list_item_1, productos);
+        listview.setAdapter(adapter);
     }
     
     public Producto[] getProductos(String name){

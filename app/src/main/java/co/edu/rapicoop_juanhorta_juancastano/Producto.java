@@ -75,4 +75,9 @@ public class Producto {
     public void setTAGS(String TAGS) {
         this.TAGS = TAGS;
     }
+
+    @Override
+    public String toString() {
+        return NAME + " - $" + PRICE;
+    }
 }
