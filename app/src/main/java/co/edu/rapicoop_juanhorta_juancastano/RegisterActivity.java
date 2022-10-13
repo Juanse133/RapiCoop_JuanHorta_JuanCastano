@@ -90,8 +90,18 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 boolean resultado = miDB.insertData(new Usuario(0, fullname, username, email, password, gender, role, birthday));
 
                 if (resultado) {
-                    Intent intent = new Intent(this, HomeVendorActivity.class);
-                    intent.putExtra(HomeVendorActivity.EXTRA_MESSAGE, username);
+                    Intent intent;
+                    switch (role){
+                        case "Vendedor de comidas":
+                            intent = new Intent(this, HomeVendorActivity.class);
+                            break;
+                        case "Comprador":
+                            intent = new Intent(this, HomeClientActivity.class);
+                            break;
+                        default:
+                            intent = new Intent();
+                    }
+                    intent.putExtra(HomeVendorActivity.EXTRA_MESSAGE, email);
                     startActivity(intent);
                 } else {
                     ((TextView) findViewById(R.id.errorMessage)).setText("Registro inválido");

@@ -18,6 +18,7 @@ public class ProductDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL4 = "PRICE";
     public static final String COL5 = "QUANTITY";
     public static final String COL6 = "EMAIL";
+    public static final String COL7 = "TAGS";
 
     public ProductDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -32,7 +33,8 @@ public class ProductDatabaseHelper extends SQLiteOpenHelper {
                 COL3 + " TEXT," +
                 COL4 + " REAL," +
                 COL5 + " INTEGER," +
-                COL6 + " TEXT);");
+                COL6 + " TEXT," +
+                COL7 + "TEXT);");
     }
 
     @Override
@@ -73,6 +75,12 @@ public class ProductDatabaseHelper extends SQLiteOpenHelper {
     Cursor getDataByID(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE ID = " + id, null);
+        return cursor;
+    }
+
+    Cursor getDataByName(String name) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE TAGS LIKE %" + name + "% OR NAME LIKE " + name + " AND QUANTITY > 0", null);
         return cursor;
     }
 

@@ -45,7 +45,8 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
                 "DESCRIPTION" + " TEXT," +
                 "PRICE" + " REAL," +
                 "QUANTITY" + " INTEGER," +
-                "EMAIL" + " TEXT);");
+                "EMAIL" + " TEXT," +
+                "TAGS" + " TEXT);");
 
     }
 

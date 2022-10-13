@@ -29,9 +29,19 @@ public class LoginActivity extends AppCompatActivity {
     public void onClickLogin(View view) {
         String email = ((EditText) findViewById(R.id.txtEmail)).getText().toString();
         String password = ((EditText) findViewById(R.id.txtPassword)).getText().toString();
-
-        if (checkUser(email, password)) {
-            Intent intent = new Intent(this, HomeVendorActivity.class);
+        String role = checkUser(email, password);
+        if (role != null) {
+            Intent intent;
+            switch (role){
+                case "Vendedor de comidas":
+                    intent = new Intent(this, HomeVendorActivity.class);
+                    break;
+                case "Comprador":
+                    intent = new Intent(this, HomeClientActivity.class);
+                    break;
+                default:
+                    intent = new Intent();
+            }
             intent.putExtra(HomeVendorActivity.EXTRA_MESSAGE, email);
             startActivity(intent);
         } else {
@@ -39,16 +49,18 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    public boolean checkUser(String email, String password) {
+    public String checkUser(String email, String password) {
         Cursor cursor = miDB.getDataByEmail(email);
         if (cursor.getCount() == 0)
-            return false;
+            return null;
         cursor.moveToFirst();
         int colID = cursor.getColumnIndex("PASSWORD");
         String dbPassword = cursor.getString(colID);
+        int roleID = cursor.getColumnIndex("ROLE");
+        String role = cursor.getString(roleID);
         if (password.equals(dbPassword))
-            return true;
+            return role;
         else
-            return false;
+            return null;
     }
 }

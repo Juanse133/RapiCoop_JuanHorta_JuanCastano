@@ -25,7 +25,8 @@ public class PublishProductActivity extends AppCompatActivity {
         String description = ((EditText) findViewById(R.id.productDescription)).getText().toString();
         String priceStr = ((EditText) findViewById(R.id.price)).getText().toString();
         String quantityStr = ((EditText) findViewById(R.id.quantity)).getText().toString();
-        String email = EXTRA_MESSAGE;
+        Intent intent = getIntent();
+        String email = intent.getStringExtra(EXTRA_MESSAGE);
         double price = Double.parseDouble(priceStr);
         int quantity = Integer.parseInt(quantityStr);
         System.out.println(name+" "+description+" "+email+" "+price+" "+quantity);
