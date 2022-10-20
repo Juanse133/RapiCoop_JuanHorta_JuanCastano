@@ -10,12 +10,6 @@
         android:orientation="vertical"
         tools:context=".HomeVendorActivity">
 
-        <TextView
-            android:id="@+id/welcomeMessage"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"/>
-
         <Button
             android:id="@+id/btnPublishProduct"
             android:layout_width="wrap_content"
@@ -23,12 +17,26 @@
             android:layout_marginRight="100dp"
             android:layout_marginTop="30dp"
             android:layout_weight="1"
-            android:background="@drawable/button_rounded"
             android:onClick="publishProduct"
             android:text="Públicar producto"
             android:layout_marginLeft="100dp"
             android:layout_gravity="center_horizontal"
             android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/productosTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:text="Tus productos publicados:"/>
+
+        <ListView
+            android:id="@+id/ProductsList"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_below="@+id/button1"
+            android:layout_centerHorizontal="true" />
 
     </LinearLayout>
 </ScrollView>

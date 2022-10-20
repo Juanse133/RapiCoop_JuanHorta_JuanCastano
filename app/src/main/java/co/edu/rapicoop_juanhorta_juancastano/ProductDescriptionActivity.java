@@ -31,9 +31,9 @@ public class ProductDescriptionActivity extends AppCompatActivity {
         TextView description = (TextView) findViewById(R.id.pDescription);
         description.setText(producto.getDESCRIPTION());
         TextView price = (TextView) findViewById(R.id.pPrice);
-        price.setText(producto.getPRICE().toString());
+        price.setText("$" + producto.getPRICE().toString());
         TextView tags = (TextView) findViewById(R.id.pTags);
-        tags.setText(producto.getTAGS());
+        tags.setText("Tags: " + producto.getTAGS());
 
         NumberPicker quantityPicker = (NumberPicker) findViewById(R.id.quantityPicker);
         quantityPicker.setMinValue(1);

@@ -79,10 +79,44 @@ public class ProductDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    Cursor getDataByEmail(String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE EMAIL = '" + email + "'", null);
+        return cursor;
+    }
+
     Cursor getDataByName(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE TAGS LIKE '%" + name + "%' OR NAME LIKE '%" + name + "%' AND QUANTITY > 0", null);
         return cursor;
+    }
+
+    boolean deleteData(Producto product){
+        SQLiteDatabase db = this.getWritableDatabase();
+        long resultado = db.delete(TABLE_NAME, "ID=?", new String[]{product.getID().toString()});
+
+        if (resultado == -1)
+            return false;
+        else
+            return true;
+    }
+
+    boolean updateData(Producto product){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COL2, product.getNAME());
+        values.put(COL3, product.getDESCRIPTION());
+        values.put(COL4, product.getPRICE());
+        values.put(COL5, product.getQUANTITY());
+        values.put(COL7, product.getTAGS());
+
+        long resultado = db.update(TABLE_NAME, values, "ID=?", new String[]{product.getID().toString()});
+
+        if (resultado == -1)
+            return false;
+        else
+            return true;
     }
 
 }
