@@ -35,14 +35,15 @@ public class LoginActivity extends AppCompatActivity {
             switch (role){
                 case "Vendedor de comidas":
                     intent = new Intent(this, HomeVendorActivity.class);
+                    intent.putExtra(HomeVendorActivity.EXTRA_MESSAGE, email);
                     break;
                 case "Comprador":
                     intent = new Intent(this, HomeClientActivity.class);
+                    intent.putExtra(HomeClientActivity.EXTRA_MESSAGE, email);
                     break;
                 default:
                     intent = new Intent();
             }
-            intent.putExtra(HomeVendorActivity.EXTRA_MESSAGE, email);
             startActivity(intent);
         } else {
             ((TextView) findViewById(R.id.errorMessage)).setText("Usuario o contraseña inválida");

@@ -2,9 +2,11 @@ package co.edu.rapicoop_juanhorta_juancastano;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -16,7 +18,9 @@ import java.util.Queue;
 
 public class HomeClientActivity extends AppCompatActivity {
 
+    public static final String EXTRA_MESSAGE = "mensaje";
     ProductDatabaseHelper miDB;
+    ListView listview;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,22 +28,39 @@ public class HomeClientActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home_client);
         miDB = new ProductDatabaseHelper(this);
         miDB.initData();
+
+        listview = findViewById(R.id.ProductsList);
+
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
+
+                Producto producto = (Producto) listview.getItemAtPosition(position);
+                goToDescription(producto);
+            }
+        });
     }
 
-    public void onClickSearch(View view){
+    public void goToDescription(Producto producto){
+        Intent intent = new Intent(this, ProductDescriptionActivity.class);
+        intent.putExtra(ProductDescriptionActivity.EXTRA_MESSAGE, producto.getID().toString());
+        startActivity(intent);
+    }
+
+    public void onClickSearch(View view) {
         String name = ((EditText) findViewById(R.id.txtBuscar)).getText().toString();
 
-        if(name.equals(""))
+        if (name.equals(""))
             return;
 
         List<Producto> productos = new ArrayList<>(Arrays.asList(getProductos(name)));
-        ListView listview = findViewById(R.id.ProductsList);
 
         ArrayAdapter<String> adapter = new ArrayAdapter(HomeClientActivity.this, android.R.layout.simple_list_item_1, productos);
         listview.setAdapter(adapter);
+        listview.setClickable(true);
     }
-    
-    public Producto[] getProductos(String name){
+
+    public Producto[] getProductos(String name) {
         Cursor cursor = miDB.getDataByName(name);
         Producto[] productos = new Producto[cursor.getCount()];
 
