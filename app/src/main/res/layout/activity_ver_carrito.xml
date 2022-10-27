@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".VerCarritoActivity">
+
+        <Button
+            android:id="@+id/btnAddAdress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:onClick="addAdress"
+            android:text="Añadir dirección"
+            android:layout_marginLeft="100dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/productosTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:text="Resumen de tu carrito:"/>
+
+
+        <TextView
+            android:id="@+id/totalTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:textAlignment="gravity"
+            android:paddingRight="16dp"
+            android:text="Total: $00000"/>
+
+
+        <ListView
+            android:id="@+id/ProductsList"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_below="@+id/button1"
+            android:layout_centerHorizontal="true" />
+
+    </LinearLayout>
+</ScrollView>

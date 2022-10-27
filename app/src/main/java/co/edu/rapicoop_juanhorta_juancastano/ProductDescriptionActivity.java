@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.NumberPicker;
@@ -13,14 +14,21 @@ public class ProductDescriptionActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "mensaje";
     ProductDatabaseHelper miDB;
+    CartDatabaseHelper miDBCarrito;
+    Producto producto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product_description);
+
         miDB = new ProductDatabaseHelper(this);
         miDB.initData();
-        Producto producto = getProduct(Integer.parseInt(getIntent().getStringExtra(EXTRA_MESSAGE)));
+
+        miDBCarrito = new CartDatabaseHelper(this);
+        miDBCarrito.initData();
+
+        producto = getProduct(Integer.parseInt(getIntent().getStringExtra(EXTRA_MESSAGE)));
         setValues(producto);
     }
 
@@ -65,5 +73,21 @@ public class ProductDescriptionActivity extends AppCompatActivity {
         Producto producto = new Producto(ID, NAME, DESC, PRICE, QUANTITY, EMAIL, TAGS);
 
         return producto;
+    }
+
+    public void addToCart(View view){
+
+        NumberPicker quantityPicker = (NumberPicker) findViewById(R.id.quantityPicker);
+
+        boolean resultado = miDBCarrito.insertData(new Carrito(0, producto.getID(), quantityPicker.getValue(), this.getIntent().getStringExtra("ClientEmail")));
+
+        if (resultado) {
+            ((TextView) findViewById(R.id.disclaimerMessage)).setText("Producto creado correctamente");
+            ((TextView) findViewById(R.id.disclaimerMessage)).setTextColor(getResources().getColor(R.color.green));
+        } else {
+            ((TextView) findViewById(R.id.disclaimerMessage)).setText("Hubo un error, ponte en contacto con el administrador.");
+            ((TextView) findViewById(R.id.disclaimerMessage)).setTextColor(getResources().getColor(R.color.red));
+        }
+
     }
 }

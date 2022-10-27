@@ -5,13 +5,13 @@ public class Carrito {
     private Integer ID;
     private Integer PRODUCT_ID;
     private Integer QUANTITY;
-    private Integer CLIENT_ID;
+    private String CLIENT_EMAIL;
 
-    public Carrito(Integer ID, Integer PRODUCT_ID, Integer QUANTITY, Integer CLIENT_ID) {
+    public Carrito(Integer ID, Integer PRODUCT_ID, Integer QUANTITY, String CLIENT_EMAIL) {
         this.ID = ID;
         this.PRODUCT_ID = PRODUCT_ID;
         this.QUANTITY = QUANTITY;
-        this.CLIENT_ID = CLIENT_ID;
+        this.CLIENT_EMAIL = CLIENT_EMAIL;
     }
 
     public Integer getID() {
@@ -38,11 +38,11 @@ public class Carrito {
         this.QUANTITY = QUANTITY;
     }
 
-    public Integer getCLIENT_ID() {
-        return CLIENT_ID;
+    public String getCLIENT_EMAIL() {
+        return CLIENT_EMAIL;
     }
 
-    public void setCLIENT_ID(Integer CLIENT_ID) {
-        this.CLIENT_ID = CLIENT_ID;
+    public void setCLIENT_EMAIL(String CLIENT_EMAIL) {
+        this.CLIENT_EMAIL = CLIENT_EMAIL;
     }
 }

@@ -15,7 +15,7 @@ public class CartDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL1 = "ID";
     public static final String COL2 = "PRODUCT_ID";
     public static final String COL3 = "QUANTITY";
-    public static final String COL4 = "CLIENT_ID";
+    public static final String COL4 = "CLIENT_EMAIL";
 
     public CartDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -28,7 +28,7 @@ public class CartDatabaseHelper extends SQLiteOpenHelper {
                 COL1 + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COL2 + " INTEGER," +
                 COL3 + " INTEGER," +
-                COL4 + " INTEGER);");
+                COL4 + " TEXT);");
     }
 
     @Override
@@ -47,7 +47,7 @@ public class CartDatabaseHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COL2, carrito.getPRODUCT_ID());
         values.put(COL3, carrito.getQUANTITY());
-        values.put(COL3, carrito.getCLIENT_ID());
+        values.put(COL4, carrito.getCLIENT_EMAIL());
 
         long resultado = db.insert(TABLE_NAME, null, values);
 
@@ -67,6 +67,12 @@ public class CartDatabaseHelper extends SQLiteOpenHelper {
     Cursor getDataByID(int id) {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE ID = " + id, null);
+        return cursor;
+    }
+
+    Cursor getDataByClientEmail(String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE CLIENT_EMAIL = '" + email + "'", null);
         return cursor;
     }
 }

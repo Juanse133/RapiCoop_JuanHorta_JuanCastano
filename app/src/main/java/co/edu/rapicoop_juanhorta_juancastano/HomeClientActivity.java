@@ -58,6 +58,9 @@ public class HomeClientActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected (MenuItem item){
         switch (item.getItemId()){
             case R.id.verCarrito:
+                Intent intent = new Intent(this, VerCarritoActivity.class);
+                intent.putExtra(CRUDProductActivity.EXTRA_MESSAGE, this.getIntent().getStringExtra(EXTRA_MESSAGE));
+                startActivity(intent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -67,6 +70,7 @@ public class HomeClientActivity extends AppCompatActivity {
     public void goToDescription(Producto producto){
         Intent intent = new Intent(this, ProductDescriptionActivity.class);
         intent.putExtra(ProductDescriptionActivity.EXTRA_MESSAGE, producto.getID().toString());
+        intent.putExtra("ClientEmail", this.getIntent().getStringExtra(EXTRA_MESSAGE));
         startActivity(intent);
     }
 
