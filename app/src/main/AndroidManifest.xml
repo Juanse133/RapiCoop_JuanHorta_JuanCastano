@@ -21,7 +21,8 @@
             android:exported="false" />
         <activity
             android:name=".HomeClientActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".LoginActivity"/>
         <activity
             android:name=".PublishProductActivity"
             android:exported="false" />

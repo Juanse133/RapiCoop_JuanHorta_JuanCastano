@@ -1,20 +1,22 @@
 package co.edu.rapicoop_juanhorta_juancastano;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-
+import androidx.appcompat.widget.Toolbar;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Queue;
 
 public class HomeClientActivity extends AppCompatActivity {
 
@@ -26,6 +28,12 @@ public class HomeClientActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_client);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        ActionBar actionbar = getSupportActionBar();
+        actionbar.setDisplayHomeAsUpEnabled(true);
+
         miDB = new ProductDatabaseHelper(this);
         miDB.initData();
 
@@ -39,6 +47,21 @@ public class HomeClientActivity extends AppCompatActivity {
                 goToDescription(producto);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    public boolean onOptionsItemSelected (MenuItem item){
+        switch (item.getItemId()){
+            case R.id.verCarrito:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void goToDescription(Producto producto){

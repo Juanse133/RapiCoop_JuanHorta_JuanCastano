@@ -6,6 +6,7 @@
         <entry key="..\:/Universidad/Aplicaciones_convergentes/RapiCoop_JuanHorta_JuanCastano/app/src/main/res/layout/activity_main.xml" value="0.3484375" />
         <entry key="..\:/Universidad/Aplicaciones_convergentes/RapiCoop_JuanHorta_JuanCastano/app/src/main/res/layout/activity_register.xml" value="0.3625" />
         <entry key="app/src/main/res/drawable/button_rounded.xml" value="0.201" />
+        <entry key="app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.2305" />
         <entry key="app/src/main/res/layout/activity_crudproduct.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home_client.xml" value="0.25" />
@@ -16,6 +17,9 @@
         <entry key="app/src/main/res/layout/activity_publish_product.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_product_description.xml" value="0.225" />
+        <entry key="app/src/main/res/layout/manu.xml" value="0.2128623188405797" />
+        <entry key="app/src/main/res/layout/toolbar.xml" value="0.33" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.22552083333333334" />
       </map>
     </option>
   </component>

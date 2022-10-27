@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RapiCoop_JuanHorta_JuanCastano</string>
+    <string name="app_name">RapiCoop</string>
     <string-array name="roles">
         <item>Vendedor de comidas</item>
         <item>Comprador</item>

@@ -34,11 +34,11 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent;
             switch (role){
                 case "Vendedor de comidas":
-                    intent = new Intent(this, HomeVendorActivity.class);
+                    intent = new Intent(LoginActivity.this, HomeVendorActivity.class);
                     intent.putExtra(HomeVendorActivity.EXTRA_MESSAGE, email);
                     break;
                 case "Comprador":
-                    intent = new Intent(this, HomeClientActivity.class);
+                    intent = new Intent(LoginActivity.this, HomeClientActivity.class);
                     intent.putExtra(HomeClientActivity.EXTRA_MESSAGE, email);
                     break;
                 default:
