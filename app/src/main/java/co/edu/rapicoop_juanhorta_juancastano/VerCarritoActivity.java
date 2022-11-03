@@ -2,6 +2,7 @@ package co.edu.rapicoop_juanhorta_juancastano;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -45,6 +46,11 @@ public class VerCarritoActivity extends AppCompatActivity {
                 goToDescription(producto);
             }
         });*/
+    }
+
+    public void addAddress(View view){
+        Intent intent = new Intent(this, AgregarDireccion.class);
+        startActivity(intent);
     }
 
     public Producto[] getProductos() {

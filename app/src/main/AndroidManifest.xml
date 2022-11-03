@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="co.edu.rapicoop_juanhorta_juancastano">
 
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RapiCoop_JuanHorta_JuanCastano"
         tools:targetApi="31">
+        <activity
+            android:name=".AgregarDireccion"
+            android:exported="false" />
         <activity
             android:name=".VerCarritoActivity"
             android:exported="false" />
