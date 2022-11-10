@@ -50,6 +50,7 @@ public class VerCarritoActivity extends AppCompatActivity {
 
     public void addAddress(View view){
         Intent intent = new Intent(this, AgregarDireccion.class);
+        intent.putExtra("email", getIntent().getStringExtra(EXTRA_MESSAGE));
         startActivity(intent);
     }
 
@@ -99,6 +100,7 @@ public class VerCarritoActivity extends AppCompatActivity {
         } finally {
             cursorCarrito.close();
         }
+
 
         ((TextView) findViewById(R.id.totalTxt)).setText("Total: $" + totalPrecio);
 

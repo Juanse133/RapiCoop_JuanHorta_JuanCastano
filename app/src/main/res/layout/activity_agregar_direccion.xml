@@ -60,6 +60,35 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
         android:id="@+id/tx5"/>
+
+    <Button
+        android:id="@+id/btnMap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Ver en mapa"
+        android:onClick="onSendMaps"
+        android:visibility="gone">
+    </Button>
+
+    <Button
+        android:id="@+id/btnComprar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="Realizar compra"
+        android:onClick="realizarCompra"
+        android:visibility="gone">
+    </Button>
+
+    <TextView
+        android:id="@+id/disclaimerMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="" />
 
 </LinearLayout>

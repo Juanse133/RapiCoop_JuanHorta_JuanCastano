@@ -75,4 +75,9 @@ public class CartDatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE CLIENT_EMAIL = '" + email + "'", null);
         return cursor;
     }
+
+    boolean deleteDataByEmail(String email){
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_NAME, COL4 + "=?", new String[]{email}) > 0;
+    }
 }

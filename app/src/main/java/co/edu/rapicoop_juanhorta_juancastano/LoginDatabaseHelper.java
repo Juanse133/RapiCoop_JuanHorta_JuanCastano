@@ -60,7 +60,7 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
                 "CLIENT_EMAIL" + " TEXT," +
                 "ADDRESS" + " TEXT," +
                 "STATUS" + " TEXT," +
-                "DATE" + "TEXT);");
+                "DATE" + " TEXT);");
 
     }
 
