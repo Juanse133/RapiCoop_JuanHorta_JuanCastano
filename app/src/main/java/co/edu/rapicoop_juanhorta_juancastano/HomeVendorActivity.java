@@ -55,6 +55,11 @@ public class HomeVendorActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void verSolicitudes(View view){
+        Intent intent = new Intent(this, VerSolicitudesActivity.class);
+        startActivity(intent);
+    }
+
     public Producto[] getProductos() {
         Cursor cursor = miDB.getDataByEmail(getIntent().getStringExtra(EXTRA_MESSAGE));
         Producto[] productos = new Producto[cursor.getCount()];

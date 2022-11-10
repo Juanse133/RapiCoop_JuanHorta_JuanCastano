@@ -75,4 +75,18 @@ public class CompraDatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE ID = " + id, null);
         return cursor;
     }
+
+    boolean updateData(Compra compra){
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COL5, compra.getSTATUS());
+
+        long resultado = db.update(TABLE_NAME, values, "ID=?", new String[]{compra.getID().toString()});
+
+        if (resultado == -1)
+            return false;
+        else
+            return true;
+    }
 }

@@ -11,11 +11,23 @@
         tools:context=".HomeVendorActivity">
 
         <Button
-            android:id="@+id/btnPublishProduct"
+            android:id="@+id/btnSolicitudes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="100dp"
             android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:onClick="verSolicitudes"
+            android:text="Ver solucitudes"
+            android:layout_marginLeft="100dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/btnPublishProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="100dp"
             android:layout_weight="1"
             android:onClick="publishProduct"
             android:text="Públicar producto"

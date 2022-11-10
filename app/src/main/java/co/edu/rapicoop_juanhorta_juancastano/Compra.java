@@ -66,4 +66,9 @@ public class Compra {
     public void setDATE(String DATE) {
         this.DATE = DATE;
     }
+
+    @Override
+    public String toString() {
+        return CLIENT_EMAIL + " - " + STATUS + " - " + DATE;
+    }
 }

@@ -18,6 +18,8 @@
         <entry key="app/src/main/res/layout/activity_publish_product.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_ver_carrito.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_ver_peticion.xml" value="0.21739130434782608" />
+        <entry key="app/src/main/res/layout/activity_ver_solicitudes.xml" value="0.21739130434782608" />
         <entry key="app/src/main/res/layout/fragment_product_description.xml" value="0.225" />
         <entry key="app/src/main/res/layout/manu.xml" value="0.2128623188405797" />
         <entry key="app/src/main/res/layout/toolbar.xml" value="0.33" />
