@@ -1,5 +1,7 @@
 package co.edu.rapicoop_juanhorta_juancastano;
 
+import java.util.Queue;
+
 public class Compra {
 
     private Integer ID;
@@ -8,15 +10,21 @@ public class Compra {
     private String ADDRESS;
     private String STATUS;
     private String DATE;
+    private String QUANTITIES;
+    private String DEALER;
+    private Double PRICE;
 
 
-    public Compra(Integer ID, String PRODUCTS_ID, String CLIENT_EMAIL, String ADDRESS, String STATUS, String DATE) {
+    public Compra(Integer ID, String PRODUCTS_ID, String CLIENT_EMAIL, String ADDRESS, String STATUS, String DATE, String QUANTITIES, String DEALER, Double PRICE) {
         this.ID = ID;
         this.PRODUCTS_ID = PRODUCTS_ID;
         this.CLIENT_EMAIL = CLIENT_EMAIL;
         this.ADDRESS = ADDRESS;
         this.STATUS = STATUS;
         this.DATE = DATE;
+        this.QUANTITIES = QUANTITIES;
+        this.DEALER = DEALER;
+        this.PRICE = PRICE;
     }
 
     public Integer getID() {
@@ -65,6 +73,30 @@ public class Compra {
 
     public void setDATE(String DATE) {
         this.DATE = DATE;
+    }
+
+    public String getQUANTITIES() {
+        return QUANTITIES;
+    }
+
+    public void setQUANTITIES(String QUANTITIES) {
+        this.QUANTITIES = QUANTITIES;
+    }
+
+    public String getDEALER() {
+        return DEALER;
+    }
+
+    public void setDEALER(String DEALER) {
+        this.DEALER = DEALER;
+    }
+
+    public Double getPRICE() {
+        return PRICE;
+    }
+
+    public void setPRICE(Double PRICE) {
+        this.PRICE = PRICE;
     }
 
     @Override

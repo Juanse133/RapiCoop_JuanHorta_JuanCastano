@@ -18,6 +18,9 @@ public class CompraDatabaseHelper extends SQLiteOpenHelper {
     public static final String COL4 = "ADDRESS";
     public static final String COL5 = "STATUS";
     public static final String COL6 = "DATE";
+    public static final String COL7 = "QUANTITIES";
+    public static final String COL8 = "DEALER";
+    public static final String COL9 = "PRICE";
 
     public CompraDatabaseHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -32,7 +35,10 @@ public class CompraDatabaseHelper extends SQLiteOpenHelper {
                 COL3 + " TEXT," +
                 COL4 + " TEXT," +
                 COL5 + " TEXT," +
-                COL6 + "TEXT);");
+                COL6 + " TEXT," +
+                COL7 + " TEXT," +
+                COL8 + " TEXT," +
+                COL9 + " REAL);");
     }
 
     @Override
@@ -54,6 +60,9 @@ public class CompraDatabaseHelper extends SQLiteOpenHelper {
         values.put(COL4, compra.getADDRESS());
         values.put(COL5, compra.getSTATUS());
         values.put(COL6, compra.getDATE());
+        values.put(COL7, compra.getQUANTITIES());
+        values.put(COL8, compra.getDEALER());
+        values.put(COL9, compra.getPRICE());
 
         long resultado = db.insert(TABLE_NAME, null, values);
 

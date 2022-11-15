@@ -18,7 +18,8 @@ public class VerPeticionActivity extends AppCompatActivity {
 
     ProductDatabaseHelper miDB;
     CompraDatabaseHelper miCompra;
-    ListView listview;
+    String productlist;
+    String quantitylist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,19 +46,22 @@ public class VerPeticionActivity extends AppCompatActivity {
         cursorCompra.moveToFirst();
 
         int colNAME = cursorCompra.getColumnIndex("PRODUCTS_ID");
-        String productosID = cursorCompra.getString(colNAME);
+        productlist = cursorCompra.getString(colNAME);
         int colEMAIL = cursorCompra.getColumnIndex("CLIENT_EMAIL");
         String client = cursorCompra.getString(colEMAIL);
+        int colQuantity = cursorCompra.getColumnIndex("QUANTITIES");
+        quantitylist = cursorCompra.getString(colQuantity);
 
         ((TextView) findViewById(R.id.cliente)).setText("Comprador: " + client);
 
-        String[] ids = productosID.split(",");
+        String[] ids = productlist.split(",");
 
         Producto[] productos = new Producto[ids.length];
 
         for (int i = 0; i < ids.length; i++) {
             productos[i] = getProducto(ids[i]);
-            System.out.println(productos[i].toString());
+            productos[i].setQUANTITY(Integer.parseInt(quantitylist.split(",")[i]));
+            productos[i].setPRICE(productos[i].getPRICE() * Double.parseDouble(quantitylist.split(",")[i]));
         }
 
 
@@ -91,7 +95,9 @@ public class VerPeticionActivity extends AppCompatActivity {
 
     public void aceptarSolicitud(View view){
 
-        boolean resultado = miCompra.updateData(new Compra(Integer.parseInt(getIntent().getStringExtra("compraID")),"","","","Confirmado", ""));
+        boolean resultado = miCompra.updateData(new Compra(Integer.parseInt(getIntent().getStringExtra("compraID")),"","","","Confirmado", "", "", "", 0.0));
+
+        resultado = cambiarCantidad();
 
         if (resultado) {
             ((TextView) findViewById(R.id.disclaimerMessage)).setText("Compra aceptada correctamente");
@@ -100,5 +106,21 @@ public class VerPeticionActivity extends AppCompatActivity {
             ((TextView) findViewById(R.id.disclaimerMessage)).setText("Hubo un error, ponte en contacto con el administrador.");
             ((TextView) findViewById(R.id.disclaimerMessage)).setTextColor(getResources().getColor(R.color.red));
         }
+    }
+
+    public boolean cambiarCantidad(){
+
+        boolean resultado = true;
+
+        String[] ids = productlist.split(",");
+
+        for (int i = 0; i < ids.length; i++) {
+            Producto p = getProducto(ids[i]);
+            p.setQUANTITY(p.getQUANTITY() - Integer.parseInt(quantitylist.split(",")[i]));
+            resultado = miDB.updateData(p);
+        }
+
+        return resultado;
+
     }
 }

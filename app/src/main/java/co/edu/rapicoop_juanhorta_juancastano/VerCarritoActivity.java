@@ -20,6 +20,7 @@ public class VerCarritoActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "mensaje";
     ProductDatabaseHelper miDB;
     CartDatabaseHelper miDBCarrito;
+    double precio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,19 +39,12 @@ public class VerCarritoActivity extends AppCompatActivity {
         ListView listview = findViewById(R.id.ProductsList);
         listview.setAdapter(adapter);
         listview.setClickable(true);
-       /* listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> arg0, View arg1, int position, long arg3) {
-
-                Producto producto = (Producto) listview.getItemAtPosition(position);
-                goToDescription(producto);
-            }
-        });*/
     }
 
     public void addAddress(View view){
         Intent intent = new Intent(this, AgregarDireccion.class);
         intent.putExtra("email", getIntent().getStringExtra(EXTRA_MESSAGE));
+        intent.putExtra("precio", precio);
         startActivity(intent);
     }
 
@@ -103,7 +97,7 @@ public class VerCarritoActivity extends AppCompatActivity {
 
 
         ((TextView) findViewById(R.id.totalTxt)).setText("Total: $" + totalPrecio);
-
+        precio = totalPrecio;
         return productos;
     }
 

@@ -140,6 +140,7 @@ public class AgregarDireccion extends AppCompatActivity {
 
         String email = getIntent().getStringExtra("email");
         String productsid = "";
+        String quantities = "";
 
         Cursor cursorCarrito = miCart.getDataByClientEmail(email);
 
@@ -147,13 +148,16 @@ public class AgregarDireccion extends AppCompatActivity {
             while(cursorCarrito.moveToNext()){
                 int colProductID = cursorCarrito.getColumnIndex("PRODUCT_ID");
                 int productID = Integer.parseInt(cursorCarrito.getString(colProductID));
+                int colQuantity = cursorCarrito.getColumnIndex("QUANTITY");
+                int QUANTITY = Integer.parseInt(cursorCarrito.getString(colQuantity));
                 productsid += productID + ",";
+                quantities += QUANTITY + ",";
             }
         } finally {
             cursorCarrito.close();
         }
 
-        Compra compra = new Compra(0, productsid, email, lat + ", " + lon, "pending", (new Date()).toString());
+        Compra compra = new Compra(0, productsid, email, lat + ", " + lon, "pendiente", (new Date()).toString(), quantities, "sin asignar", getIntent().getDoubleExtra("precio", 0.0));
         boolean resultado = miCompra.insertData(compra);
         if(resultado){
             ((TextView) findViewById(R.id.disclaimerMessage)).setText("Producto creado correctamente");

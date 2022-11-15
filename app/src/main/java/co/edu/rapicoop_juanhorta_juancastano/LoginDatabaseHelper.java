@@ -38,7 +38,6 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
                 COL7 + " TEXT," +
                 COL8 + " TEXT);");
 
-
         db.execSQL("create table " + "Productos_Table" + "(" +
                 "ID" + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "NAME" + " TEXT," +
@@ -60,7 +59,10 @@ public class LoginDatabaseHelper extends SQLiteOpenHelper {
                 "CLIENT_EMAIL" + " TEXT," +
                 "ADDRESS" + " TEXT," +
                 "STATUS" + " TEXT," +
-                "DATE" + " TEXT);");
+                "DATE" + " TEXT," +
+                "QUANTITIES" + " TEXT," +
+                "DEALER" + " TEXT," +
+                "PRICE" + " REAL);");
 
     }
 

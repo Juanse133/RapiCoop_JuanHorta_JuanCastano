@@ -64,8 +64,14 @@ public class VerSolicitudesActivity extends AppCompatActivity {
                 String STATUS = cursor.getString(colStatus);
                 int colDate = cursor.getColumnIndex("DATE");
                 String DATE = cursor.getString(colDate);
+                int colQuant = cursor.getColumnIndex("QUANTITIES");
+                String QUANTITIES = cursor.getString(colQuant);
+                int colDealer = cursor.getColumnIndex("DEALER");
+                String DEALER = cursor.getString(colDealer);
+                int colPrice = cursor.getColumnIndex("PRICE");
+                double PRICE = Double.parseDouble(cursor.getString(colPrice));
 
-                Compra compra = new Compra(ID, PRODUCTS_ID, CLIENT_EMAIL, ADDRESS, STATUS, DATE);
+                Compra compra = new Compra(ID, PRODUCTS_ID, CLIENT_EMAIL, ADDRESS, STATUS, DATE, QUANTITIES, DEALER, PRICE);
 
                 compras[cont++] = compra;
             }
