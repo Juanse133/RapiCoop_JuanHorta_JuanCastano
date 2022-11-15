@@ -41,6 +41,10 @@ public class LoginActivity extends AppCompatActivity {
                     intent = new Intent(LoginActivity.this, HomeClientActivity.class);
                     intent.putExtra(HomeClientActivity.EXTRA_MESSAGE, email);
                     break;
+                case "Domiciliario":
+                    intent = new Intent(LoginActivity.this, HomeDealerActivity.class);
+                    intent.putExtra(HomeDealerActivity.EXTRA_MESSAGE, email);
+                    break;
                 default:
                     intent = new Intent();
             }

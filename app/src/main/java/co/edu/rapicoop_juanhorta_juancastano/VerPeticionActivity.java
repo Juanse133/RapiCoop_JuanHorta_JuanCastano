@@ -96,10 +96,9 @@ public class VerPeticionActivity extends AppCompatActivity {
     public void aceptarSolicitud(View view){
 
         boolean resultado = miCompra.updateData(new Compra(Integer.parseInt(getIntent().getStringExtra("compraID")),"","","","Confirmado", "", "", "", 0.0));
+        boolean resultado2 = cambiarCantidad();
 
-        resultado = cambiarCantidad();
-
-        if (resultado) {
+        if (resultado && resultado2) {
             ((TextView) findViewById(R.id.disclaimerMessage)).setText("Compra aceptada correctamente");
             ((TextView) findViewById(R.id.disclaimerMessage)).setTextColor(getResources().getColor(R.color.green));
         } else {

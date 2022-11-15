@@ -85,9 +85,14 @@ public class CompraDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    Cursor getDataByStatus(String Status) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE STATUS = '" + Status + "'", null);
+        return cursor;
+    }
+
     boolean updateData(Compra compra){
         SQLiteDatabase db = this.getWritableDatabase();
-
         ContentValues values = new ContentValues();
         values.put(COL5, compra.getSTATUS());
 
