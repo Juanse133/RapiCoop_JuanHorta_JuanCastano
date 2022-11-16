@@ -91,10 +91,17 @@ public class CompraDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    Cursor getDataOnGoing(String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE DEALER = '" + email + "' AND STATUS = 'En Camino'", null);
+        return cursor;
+    }
+
     boolean updateData(Compra compra){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COL5, compra.getSTATUS());
+        values.put(COL8, compra.getDEALER());
 
         long resultado = db.update(TABLE_NAME, values, "ID=?", new String[]{compra.getID().toString()});
 

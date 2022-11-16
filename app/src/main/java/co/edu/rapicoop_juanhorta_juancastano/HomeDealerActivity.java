@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -82,10 +84,15 @@ public class HomeDealerActivity extends AppCompatActivity {
     }
 
     public void goToDescription(Compra compra){
-
+        Intent intent = new Intent(this, DeliveryDescriptionActivity.class);
+        intent.putExtra("compraID", compra.getID().toString());
+        intent.putExtra("email", getIntent().getStringExtra(EXTRA_MESSAGE));
+        startActivity(intent);
     }
 
     public void verPedido(View view){
-
+        Intent intent = new Intent(this, PedidoActualActivity.class);
+        intent.putExtra("email", getIntent().getStringExtra(EXTRA_MESSAGE));
+        startActivity(intent);
     }
 }

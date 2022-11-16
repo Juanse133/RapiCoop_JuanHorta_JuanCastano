@@ -9,12 +9,14 @@
         <entry key="app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.2305" />
         <entry key="app/src/main/res/layout/activity_agregar_direccion.xml" value="0.2128623188405797" />
         <entry key="app/src/main/res/layout/activity_crudproduct.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_delivery_description.xml" value="0.23454913880445796" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_home_client.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_home_dealer.xml" value="0.23454913880445796" />
         <entry key="app/src/main/res/layout/activity_home_vendor.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16995947315096252" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.16995947315096252" />
+        <entry key="app/src/main/res/layout/activity_pedido_actual.xml" value="0.21739130434782608" />
         <entry key="app/src/main/res/layout/activity_product_description.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_publish_product.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />

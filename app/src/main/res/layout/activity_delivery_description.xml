@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".DeliveryDescriptionActivity">
+
+        <Button
+            android:id="@+id/btnOnMap"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="100dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="1"
+            android:onClick="onMap"
+            android:text="Ver en mapa"
+            android:layout_marginLeft="100dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="15sp"/>
+
+        <Button
+            android:id="@+id/btnAceptar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="100dp"
+            android:layout_weight="1"
+            android:onClick="aceptarPedido"
+            android:text="Llevar pedido"
+            android:layout_marginLeft="100dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:id="@+id/disclaimerMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <TextView
+            android:id="@+id/productosTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:layout_marginTop="30dp"
+            android:text="Resumen de la compra:"/>
+
+
+        <TextView
+            android:id="@+id/totalTxt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:textAlignment="gravity"
+            android:paddingRight="16dp"
+            android:text="Total: $00000"/>
+
+
+        <ListView
+            android:id="@+id/ProductsList"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_below="@+id/button1"
+            android:layout_centerHorizontal="true" />
+
+    </LinearLayout>
+</ScrollView>
