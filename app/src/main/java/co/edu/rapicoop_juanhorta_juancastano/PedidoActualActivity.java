@@ -1,6 +1,7 @@
 package co.edu.rapicoop_juanhorta_juancastano;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
 import android.content.ComponentName;
 import android.content.Context;
@@ -93,6 +94,11 @@ public class PedidoActualActivity extends AppCompatActivity {
         if (resultado) {
             ((TextView) findViewById(R.id.disclaimerMessage)).setText("Pedido entregado correctamente");
             ((TextView) findViewById(R.id.disclaimerMessage)).setTextColor(getResources().getColor(R.color.green));
+
+            Intent intent = new Intent(this, DelayedMessageService.class);
+            intent.putExtra(DelayedMessageService.EXTRA_MESSAGE, "Pedido Entregado");
+            startService(intent);
+
         } else {
             ((TextView) findViewById(R.id.disclaimerMessage)).setText("Hubo un error, ponte en contacto con el administrador.");
             ((TextView) findViewById(R.id.disclaimerMessage)).setTextColor(getResources().getColor(R.color.red));
