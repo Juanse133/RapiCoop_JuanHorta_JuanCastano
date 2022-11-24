@@ -97,6 +97,18 @@ public class CompraDatabaseHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    Cursor getDataDelivered(String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE DEALER = '" + email + "' AND STATUS = 'Entregado'", null);
+        return cursor;
+    }
+
+    Cursor getDataByClient(String email) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery("Select * from " + TABLE_NAME + " WHERE CLIENT_EMAIL = '" + email + "'", null);
+        return cursor;
+    }
+
     boolean updateData(Compra compra){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();

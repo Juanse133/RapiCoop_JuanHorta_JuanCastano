@@ -94,4 +94,10 @@ public class HomeVendorActivity extends AppCompatActivity {
         return productos;
     }
 
+    public void verStats(View view){
+        Intent intent = new Intent(this, StatsActivity.class);
+        intent.putExtra("rol", "Vendor");
+        intent.putExtra("user", getIntent().getStringExtra(EXTRA_MESSAGE));
+        startActivity(intent);
+    }
 }

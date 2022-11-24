@@ -120,4 +120,11 @@ public class HomeClientActivity extends AppCompatActivity {
         }
         return productos;
     }
+
+    public void verStats(View view){
+        Intent intent = new Intent(this, StatsActivity.class);
+        intent.putExtra("rol", "Client");
+        intent.putExtra("user", getIntent().getStringExtra(EXTRA_MESSAGE));
+        startActivity(intent);
+    }
 }

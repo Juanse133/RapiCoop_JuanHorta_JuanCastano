@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/layout/activity_crudproduct.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_delivery_description.xml" value="0.23454913880445796" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_home_client.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_home_client.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_home_dealer.xml" value="0.23454913880445796" />
         <entry key="app/src/main/res/layout/activity_home_vendor.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.16995947315096252" />
@@ -20,6 +20,7 @@
         <entry key="app/src/main/res/layout/activity_product_description.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_publish_product.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_stats.xml" value="0.22771023302938195" />
         <entry key="app/src/main/res/layout/activity_ver_carrito.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_ver_peticion.xml" value="0.21739130434782608" />
         <entry key="app/src/main/res/layout/activity_ver_solicitudes.xml" value="0.21739130434782608" />

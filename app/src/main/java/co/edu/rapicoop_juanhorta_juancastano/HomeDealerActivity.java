@@ -95,4 +95,11 @@ public class HomeDealerActivity extends AppCompatActivity {
         intent.putExtra("email", getIntent().getStringExtra(EXTRA_MESSAGE));
         startActivity(intent);
     }
+
+    public void verStats(View view){
+        Intent intent = new Intent(this, StatsActivity.class);
+        intent.putExtra("rol", "Dealer");
+        intent.putExtra("user", getIntent().getStringExtra(EXTRA_MESSAGE));
+        startActivity(intent);
+    }
 }

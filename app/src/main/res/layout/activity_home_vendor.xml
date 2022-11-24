@@ -24,6 +24,18 @@
             android:textSize="15sp"/>
 
         <Button
+            android:id="@+id/btnStats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="100dp"
+            android:layout_weight="1"
+            android:onClick="verStats"
+            android:text="Ver estadísticas"
+            android:layout_marginLeft="100dp"
+            android:layout_gravity="center_horizontal"
+            android:textSize="15sp"/>
+
+        <Button
             android:id="@+id/btnPublishProduct"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

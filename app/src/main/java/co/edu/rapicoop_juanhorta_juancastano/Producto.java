@@ -20,6 +20,8 @@ public class Producto {
         this.TAGS = TAGS;
     }
 
+    public Producto(){}
+
     public Integer getID() {
         return ID;
     }
